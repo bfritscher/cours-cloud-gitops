@@ -17,4 +17,6 @@ spec:
     helm:
       valuesObject:
         service:
-          ports: 8081
+          ports:
+            http: 8081
+            https: 8443
