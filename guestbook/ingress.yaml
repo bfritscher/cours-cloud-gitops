@@ -5,6 +5,10 @@ metadata:
   annotations:
     networking.gke.io/managed-certificates: my-ssl-cert
 spec:
+  tls:
+  - hosts:
+    - "gb-heg.duckdns.org"
+    secretName: my-ssl-cert
   rules:
   - host: "gb-heg.duckdns.org"
     http:
