@@ -23,6 +23,17 @@ spec:
         - image: ghcr.io/bfritscher/gcp_gb:latest
           imagePullPolicy: Always
           name: guestbook
+          volumeMounts:
+          - name: service-account-credentials-volume
+            mountPath: /etc/gcp
+            readOnly: true
+          volumes:
+            - name: service-account-credentials-volume
+              secret:
+                secretName: my-data-service-account-credentials
+                items:
+                - key: sa_json
+                  path: sa_credentials.json            
           ports:
             - containerPort: 5000
               name: http
@@ -32,6 +43,8 @@ spec:
           env:
             - name: PORT
               value: "5000"
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /etc/gcp/sa_credentials.json
           resources:
             limits:
               cpu: 500m
