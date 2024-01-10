@@ -29,6 +29,13 @@ spec:
               protocol: TCP
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 500m
+              memory: 512Mi
       restartPolicy: Always
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 30
