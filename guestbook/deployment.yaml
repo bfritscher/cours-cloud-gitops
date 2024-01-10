@@ -24,9 +24,9 @@ spec:
           imagePullPolicy: Always
           name: guestbook
           volumeMounts:
-          - name: service-account-credentials-volume
-            mountPath: /etc/gcp
-            readOnly: true
+            - name: service-account-credentials-volume
+              mountPath: /etc/gcp
+              readOnly: true
           volumes:
             - name: service-account-credentials-volume
               secret:
