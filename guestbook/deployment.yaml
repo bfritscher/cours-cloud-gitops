@@ -19,6 +19,13 @@ spec:
       labels:
         app.kubernetes.io/name: guestbook
     spec:
+      volumes:
+        - name: service-account-credentials-volume
+          secret:
+            secretName: my-data-service-account-credentials
+            items:
+            - key: sa_json
+              path: sa_credentials.json        
       containers:
         - image: ghcr.io/bfritscher/gcp_gb:latest
           imagePullPolicy: Always
@@ -26,14 +33,7 @@ spec:
           volumeMounts:
             - name: service-account-credentials-volume
               mountPath: /etc/gcp
-              readOnly: true
-          volumes:
-            - name: service-account-credentials-volume
-              secret:
-                secretName: my-data-service-account-credentials
-                items:
-                - key: sa_json
-                  path: sa_credentials.json            
+              readOnly: true        
           ports:
             - containerPort: 5000
               name: http
