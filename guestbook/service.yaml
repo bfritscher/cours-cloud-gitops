@@ -11,4 +11,4 @@ spec:
   selector:
      app.kubernetes.io/name: guestbook
   sessionAffinity: None
-  type: ClusterIP
+  type: LoadBalancer
