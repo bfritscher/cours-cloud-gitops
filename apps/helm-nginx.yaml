@@ -15,8 +15,4 @@ spec:
     chart: nginx
     targetRevision: 15.4.3
     helm:
-      valuesObject:
-        service:
-          ports:
-            http: 8081
-            https: 8443
+      
