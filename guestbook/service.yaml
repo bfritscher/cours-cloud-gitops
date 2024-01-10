@@ -5,10 +5,10 @@ metadata:
 spec:
   ports:
     - name: http
-      port: 80
+      port: 5000
       protocol: TCP
       targetPort: 5000
   selector:
      app.kubernetes.io/name: guestbook
   sessionAffinity: None
-  type: LoadBalancer
+  type: ClusterIP
