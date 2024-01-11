@@ -27,7 +27,7 @@ spec:
             - key: sa_json
               path: sa_credentials.json        
       containers:
-        - image: ghcr.io/bfritscher/gcp_gb:green
+        - image: ghcr.io/bfritscher/gcp_gb:red
           imagePullPolicy: Always
           name: guestbook
           volumeMounts:
